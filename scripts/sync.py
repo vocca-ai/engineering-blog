@@ -26,6 +26,8 @@ import yaml
 COLLECTION_ID = "6ae34bd6bc65ae4e3a16ea1a"  # 📄 Engineering
 AUTHORS_COLLECTION_ID = "6aacf8cd6040b2551bc01b6e"  # Authors (shared with the marketing blog)
 API = "https://api.webflow.com/v2"
+# Local images are served from the public repo, pinned to the commit being synced.
+RAW_BASE = f"https://raw.githubusercontent.com/vocca-ai/engineering-blog/{os.environ.get('GITHUB_SHA', 'main')}"
 ROOT = Path(__file__).resolve().parent.parent
 POSTS_DIR = ROOT / "posts"
 
@@ -37,6 +39,16 @@ WORDS_PER_MINUTE = 220
 
 class PostError(Exception):
     pass
+
+
+def image_url(path, ref):
+    """Turn a path relative to the post into a public URL; leave absolute URLs alone."""
+    if re.match(r"^https?://", ref):
+        return ref
+    local = (path.parent / ref).resolve()
+    if not local.is_file():
+        raise PostError(f"image not found: {ref}")
+    return f"{RAW_BASE}/{local.relative_to(ROOT).as_posix()}"
 
 
 def post_files():
@@ -84,6 +96,11 @@ def parse(path):
         raise PostError("body must not contain a level-1 heading; the title comes from `title`")
 
     words = len(re.findall(r"\w+", body_md))
+    body_md = re.sub(
+        r"(!\[[^\]]*\]\()([^)\s]+)",
+        lambda m: m.group(1) + image_url(path, m.group(2)),
+        body_md,
+    )
     return {
         "path": path.relative_to(ROOT).as_posix(),
         "status": status,
@@ -100,7 +117,7 @@ def parse(path):
             "date-displayed": f"{published:%b} {published.day}, {published.year}",
             "reading-time-min": max(1, math.ceil(words / WORDS_PER_MINUTE)),
             "featured": bool(meta.get("featured", False)),
-            "cover-image": {"url": meta["cover"], "alt": meta.get("cover_alt", title)} if meta.get("cover") else None,
+            "cover-image": {"url": image_url(path, meta["cover"]), "alt": meta.get("cover_alt", title)} if meta.get("cover") else None,
             "seo---title": meta.get("seo_title") or title,
             "seo---description": meta.get("seo_description") or summary,
             "source-path": path.relative_to(ROOT).as_posix(),

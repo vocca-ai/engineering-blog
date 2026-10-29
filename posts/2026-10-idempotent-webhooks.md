@@ -4,6 +4,8 @@ slug: idempotent-webhooks
 summary: "Our messaging provider redelivered inbound webhooks, and a handler without idempotency turned one patient reply into a burst of identical confirmations. Here is what broke, the fix, and the rule we now apply to every webhook."
 team: Platform
 date: 2026-10-29
+cover: images/idempotent-webhooks-flow.png
+cover_alt: "Diagram of a webhook delivered three times and processed once"
 status: draft
 ---
 
@@ -24,6 +26,8 @@ In our case, a slow downstream step meant the handler sometimes answered after t
 ## The fix: remember what you have already done
 
 The pattern is short. Before any side effect, try to record the event's unique id. If it was already recorded, stop.
+
+![The handler records each message id once; redeliveries of the same id are acknowledged and ignored.](images/idempotent-webhooks-flow.png)
 
 ```python
 def handle_inbound(event: InboundMessage) -> None:
