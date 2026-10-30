@@ -35,9 +35,7 @@ Amdahl's law says that speeding up one part of a system improves the whole only 
 
 ![Diagram of a delivery pipeline where code has become narrow and validation has become the widest step](images/building-when-building-is-cheap/amdahl.png)
 
-The behavior of an agent is a distribution over thousands of conversations rather than something anyone can read in the code, so every consequential change is checked against recorded conversations and then exposed to a fraction of live traffic in which its target metric has to move, and because a workflow succeeds only when all of its steps succeed, an agent that is right ninety percent of the time per step completes a ten-step workflow only about a third of the time, which is why we evaluate whole sequences and place verification gates inside long chains.
-
-![Chart of the probability that every step of a workflow succeeds, falling as the number of steps grows](images/building-when-building-is-cheap/passk.png)
+The behavior of an agent is a distribution over thousands of conversations rather than something anyone can read in the code, so every consequential change is checked against recorded conversations and then exposed to a fraction of live traffic in which its target metric has to move before it reaches everyone.
 
 ## Review checks intent, and documentation explains why
 
