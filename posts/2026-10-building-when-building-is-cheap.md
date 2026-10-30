@@ -8,7 +8,7 @@ date: 2026-10-30
 cover: images/building-when-building-is-cheap/cover.png
 cover_alt: "Diagram comparing the share of building and deciding before and now"
 featured: true
-status: draft
+status: published
 ---
 
 Product management rests on the premise that building software is expensive and that someone must therefore decide what gets built and in what order, and almost every ritual of the discipline, from roadmaps to sprint planning and estimation, follows from that single assumption about the cost of production.
