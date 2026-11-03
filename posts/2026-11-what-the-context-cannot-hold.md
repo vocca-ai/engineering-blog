@@ -1,7 +1,7 @@
 ---
-title: "What building with agents taught me about taste, agency and seniority"
+title: "What building with agents taught us about taste, agency and seniority"
 slug: what-the-context-cannot-hold
-summary: "Building Vocca with agents, I slowly noticed that they reason very well about what exists and much less well about what was abandoned or has not been imagined yet, and that observation has changed what we look for in the people we hire."
+summary: "Building Vocca with agents, we slowly noticed that they reason very well about what exists and much less well about what was abandoned or has not been imagined yet, and that observation has changed what we look for in the people we hire."
 team: Product
 author: hugo-danet
 date: 2026-11-04
@@ -11,9 +11,9 @@ featured: false
 status: published
 ---
 
-Over the past year, agents have taken on a growing share of the work at Vocca, from writing code to drafting plans and reviewing changes, and somewhere along the way I noticed a pattern that I did not expect and still do not fully understand, which is that they are excellent whenever the answer can be found in material that already exists and noticeably less convincing whenever it cannot.
+Over the past year, agents have taken on a growing share of the work at Vocca, from writing code to drafting plans and reviewing changes, and somewhere along the way we noticed a pattern that we did not expect and still do not fully understand, which is that they are excellent whenever the answer can be found in material that already exists and noticeably less convincing whenever it cannot.
 
-My working explanation is a simple one. Every agent harness, however elaborate, gathers files, tickets, logs and instructions into a context window and then reasons over what it has gathered, so what it sees is the present state of things, while the reasons behind past decisions and the shape of what nobody has built yet are mostly absent from that window. This matters little when an agent executes a well defined task, and it seems to matter a great deal when we ask agents to plan, to prioritize or to direct other agents, which is the direction the whole industry, ourselves included, is moving in.
+Our working explanation is a simple one, which is that every agent harness, however elaborate, gathers files, tickets, logs and instructions into a context window and then reasons over what it has gathered, so what it sees is the present state of things, while the reasons behind past decisions and the shape of what nobody has built yet are mostly absent from that window. This matters little when an agent executes a well defined task, and it seems to matter a great deal when we ask agents to plan, to prioritize or to direct other agents, which is the direction the whole industry, ourselves included, is moving in.
 
 ## The past that left no trace
 
@@ -23,19 +23,19 @@ In practice, an agent extending a codebase follows the conventions it finds near
 
 ## The future that has no trace yet
 
-The opposite limit took me longer to see. When we asked agents where a part of the product should go next, the answers were careful, well argued and almost always a reasonable extension of what was already there, built from the current features, the open tickets and the most frequent requests, which makes sense once you consider that a direction nobody has formulated cannot be retrieved from any document.
+The opposite limit took us longer to see. When we asked agents where a part of the product should go next, the answers were careful, well argued and almost always a reasonable extension of what was already there, built from the current features, the open tickets and the most frequent requests, which makes sense once you consider that a direction nobody has formulated cannot be retrieved from any document.
 
 ## Why agents directing agents may drift towards the incremental
 
-If both observations hold, an organization in which agents plan the work of other agents would tend to converge on a slightly better version of what it already does, because each step reasons from precedent and each proposal stays close to the most probable continuation of the present. That is a perfectly good outcome for maintenance, and I suspect it is a less good one for a young company whose reason to exist is to build something that was not there before.
+If both observations hold, an organization in which agents plan the work of other agents would tend to converge on a slightly better version of what it already does, because each step reasons from precedent and each proposal stays close to the most probable continuation of the present. That is a perfectly good outcome for maintenance, and probably a less good one for a young company whose reason to exist is to build something that was not there before.
 
 ![Diagram of agents directing agents advancing in small steps along what exists, while a single chosen direction leaps far above](images/what-the-context-cannot-hold/drift.png)
 
-I do not read this as a failure of the models, and I may well be wrong about how long it will last, but for now larger context windows do not seem to change it, since the missing material is not too long to fit but simply absent. The question it left us with was not whether to rely on agents, which we do for most of our implementation, but who brings what the context cannot hold.
+We do not read this as a failure of the models, and we may well be wrong about how long it will last, but for now larger context windows do not seem to change it, since the missing material is not too long to fit but simply absent. The question it left us with was not whether to rely on agents, which we do for most of our implementation, but who brings what the context cannot hold.
 
 ## Taste brings the future
 
-The answer we have arrived at, for now, is taste, which we understand as the ability to recognize that something is good before any precedent proves it, and to set aside something that is consistent with everything around it but does not deserve to exist. Some of the best decisions I have seen at Vocca came from someone looking at a technically correct proposal that extended the product in the most obvious way and explaining why our customers would be better served by something quite different.
+The answer we have arrived at, for now, is taste, which we understand as the ability to recognize that something is good before any precedent proves it, and to set aside something that is consistent with everything around it but does not deserve to exist. Some of the best decisions we have made at Vocca came from someone looking at a technically correct proposal that extended the product in the most obvious way and explaining why our customers would be better served by something quite different.
 
 ## Agency acts on what nobody asked for
 
