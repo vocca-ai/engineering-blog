@@ -1,7 +1,7 @@
 ---
-title: "Agents reason about what exists, which is why we hire for taste, agency and seniority"
+title: "What building with agents taught me about taste, agency and seniority"
 slug: what-the-context-cannot-hold
-summary: "An agent solves problems inside its context, and its context only ever contains the present, so the reasons behind past decisions and the shape of what does not exist yet stay out of reach, which is exactly the work we hire people to do."
+summary: "Building Vocca with agents, I slowly noticed that they reason very well about what exists and much less well about what was abandoned or has not been imagined yet, and that observation has changed what we look for in the people we hire."
 team: Product
 author: hugo-danet
 date: 2026-11-04
@@ -11,44 +11,42 @@ featured: false
 status: published
 ---
 
-Every agent harness, however elaborate, works the same way underneath, since it gathers files, tickets, logs and instructions into a context window and then reasons over what it has gathered, which makes it remarkably good at anything whose answer can be found in material that already exists and structurally weak at anything whose answer lies in material that was never written down or does not exist yet.
+Over the past year, agents have taken on a growing share of the work at Vocca, from writing code to drafting plans and reviewing changes, and somewhere along the way I noticed a pattern that I did not expect and still do not fully understand, which is that they are excellent whenever the answer can be found in material that already exists and noticeably less convincing whenever it cannot.
 
-That limit matters little while agents execute, because execution is mostly a question of applying what is already known to a new case, but it becomes the central question once agents are asked to plan, to prioritize or to direct other agents, which is where most of the industry is now heading.
+My working explanation is a simple one. Every agent harness, however elaborate, gathers files, tickets, logs and instructions into a context window and then reasons over what it has gathered, so what it sees is the present state of things, while the reasons behind past decisions and the shape of what nobody has built yet are mostly absent from that window. This matters little when an agent executes a well defined task, and it seems to matter a great deal when we ask agents to plan, to prioritize or to direct other agents, which is the direction the whole industry, ourselves included, is moving in.
 
 ## The past that left no trace
 
-Code records what was decided and almost never why, so the retry that looks redundant, the timeout that looks arbitrary and the feature that was built and then removed after a customer pilot all appear in the context either as unexplained details or not at all, and the attempts that were abandoned, which carry most of what a team has learned, leave no trace in the repository whatsoever.
+Code records what was decided and rarely why, so the retry that looks redundant, the timeout that looks arbitrary and the feature we built and then removed after a pilot all appear in the context either as unexplained details or not at all, and the attempts we abandoned, which hold much of what our team has learned, leave no trace in the repository.
 
-A recent study measured this directly by giving coding agents tasks whose instructions conflicted with the conventions already present in a repository, and found that agents followed nearby existing code far more reliably than either their own defaults or the new intent, to the point that when all existing code contradicted the requested direction and nothing else was provided, none of sixty attempts succeeded, while a single written rule stating the intended priority brought success to fifty-nine out of sixty ([Precedent or Intent?](https://arxiv.org/html/2610.38244)), which means that the existing code prevails over any new intention that has not been stated explicitly somewhere the agent will read it.
+In practice, an agent extending a codebase follows the conventions it finds nearby rather than an intention that was only discussed in a meeting, and the only reliable way we have found to change that is to write the intention down, explicitly, somewhere the agent will read it.
 
 ## The future that has no trace yet
 
-The opposite limit is less discussed and probably more important, since a product direction that nobody has formulated cannot be retrieved from any document, and an agent asked where a product should go next will reconstruct a direction from what the context contains, meaning the current features, the open tickets and the most frequent requests, which produces a careful extension of the present rather than a decision about the future.
+The opposite limit took me longer to see. When we asked agents where a part of the product should go next, the answers were careful, well argued and almost always a reasonable extension of what was already there, built from the current features, the open tickets and the most frequent requests, which makes sense once you consider that a direction nobody has formulated cannot be retrieved from any document.
 
-Research on creative tasks points the same way, finding that models produce ideas that are individually competent but collectively far more similar to each other than human ideas, both within one model and across models from different labs ([PNAS Nexus, via TechXplore](https://techxplore.com/news/2026-03-llms-creativity-ai-responses-variety.html), [Are LLMs becoming similarly creative?](https://arxiv.org/pdf/2608.19437)), and work on teams of agents shows that they can deliver correct designs while exploring only a small part of the space of possible designs, with the injected context narrowing that exploration further ([When Context Hurts](https://arxiv.org/pdf/2605.04361)).
+## Why agents directing agents may drift towards the incremental
 
-## Why agents directing agents drift towards the incremental
-
-Put these two limits together and an organization in which agents plan the work of other agents converges, quite naturally, on a slightly better version of what it already does, because every step reasons from precedent and every proposal stays close to the most probable continuation of the present, which is a reasonable outcome for maintenance and a poor one for a company whose reason to exist is to build something that was not there before.
+If both observations hold, an organization in which agents plan the work of other agents would tend to converge on a slightly better version of what it already does, because each step reasons from precedent and each proposal stays close to the most probable continuation of the present. That is a perfectly good outcome for maintenance, and I suspect it is a less good one for a young company whose reason to exist is to build something that was not there before.
 
 ![Diagram of agents directing agents advancing in small steps along what exists, while a single chosen direction leaps far above](images/what-the-context-cannot-hold/drift.png)
 
-Nothing about this is a failure of the models, and larger context windows do not change it, since the missing material is not too long to fit but simply absent, so the question for a team is not whether to rely on agents, which we do for most of our implementation, but who brings what the context cannot hold.
+I do not read this as a failure of the models, and I may well be wrong about how long it will last, but for now larger context windows do not seem to change it, since the missing material is not too long to fit but simply absent. The question it left us with was not whether to rely on agents, which we do for most of our implementation, but who brings what the context cannot hold.
 
 ## Taste brings the future
 
-Taste, in the sense we use when hiring, is the ability to recognize that something is good before there is any precedent proving it, and to reject something that is consistent with everything around it but does not deserve to exist, which is precisely the judgment an agent cannot borrow from its context because the reference it would need has not been built yet. Someone with taste looks at a technically correct proposal that extends the current product in the most obvious way and can explain why the customer would be better served by a different product altogether.
+The answer we have arrived at, for now, is taste, which we understand as the ability to recognize that something is good before any precedent proves it, and to set aside something that is consistent with everything around it but does not deserve to exist. Some of the best decisions I have seen at Vocca came from someone looking at a technically correct proposal that extended the product in the most obvious way and explaining why our customers would be better served by something quite different.
 
 ## Agency acts on what nobody asked for
 
-An agent acts on the task it was given, while most of the decisions that change a company are ones nobody assigned, such as noticing that a process everyone works around should not exist, that a customer request hides a more general problem, or that a direction the team agreed on months ago no longer holds, so we look for people who take those decisions without waiting for permission and who then write them down as explicit rules, since a written rule is what lets an intention override the precedent agents would otherwise follow.
+An agent acts on the task it was given, while many of the decisions that changed the course of our company were ones nobody had assigned, such as noticing that a process everyone worked around should not exist, that a customer request hid a more general problem, or that a direction we had agreed on months earlier no longer held. We look for people who take those decisions without waiting to be asked and who then write them down as explicit rules, since a written rule appears to be what lets an intention override the precedent agents would otherwise follow.
 
 ## Seniority carries the past
 
-We value seniority for the memory it carries rather than for the technical depth it once implied, because knowledge of a framework is now available on demand to anyone who knows what to ask, whereas the memory of why a migration that looked routine turned out to be irreversible, or of why a shortcut failed in production at another company, exists only in the people who lived through it, and it is what lets someone stop an agent that is about to remove a fence whose purpose nobody wrote down.
+We value seniority for the memory it carries rather than for the technical depth it once implied, because knowledge of a framework is now available on demand to anyone who knows what to ask, whereas the memory of why a migration that looked routine turned out to be irreversible, or of why a shortcut failed in production somewhere else, exists only in the people who lived through it, and it is often what lets someone stop an agent that is about to remove a safeguard whose purpose nobody wrote down.
 
-## How we work with this
+## What we are trying
 
-In practice we ask every decision of consequence to carry its reason next to it, so that the next person or agent reading it inherits the why and not only the what, we state product intentions as explicit rules in the instructions our agents read rather than hoping they will be inferred from examples, and we keep the work of setting direction with people while agents take on a growing share of the execution, which makes the quality of that direction the main thing a team like ours is judged on.
+None of this is settled for us, and the practices we have adopted are still evolving. We try to have every decision of consequence carry its reason next to it, so that the next person or agent who reads it inherits the why and not only the what, we state product intentions as explicit rules in the instructions our agents read rather than hoping they will be inferred from examples, and we keep the work of setting direction with people while agents take on more of the execution, which in practice means that the quality of that direction has become the thing we most need to get right.
 
-We are hiring product engineers and product managers who bring taste, agency and the memory of their own past decisions to problems where the stakes are real, through [our careers page](https://www.vocca.com/careers).
+If you would like to work on these questions with us, on problems where the stakes are real, we are hiring product engineers and product managers through [our careers page](https://www.vocca.com/careers).
