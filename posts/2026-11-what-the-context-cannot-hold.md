@@ -19,13 +19,11 @@ My working explanation is a simple one. Every agent harness, however elaborate, 
 
 Code records what was decided and rarely why, so the retry that looks redundant, the timeout that looks arbitrary and the feature we built and then removed after a pilot all appear in the context either as unexplained details or not at all, and the attempts we abandoned, which hold much of what our team has learned, leave no trace in the repository.
 
-I was relieved to find that this is not only our impression. A recent study gave coding agents tasks whose instructions conflicted with the conventions already present in a repository and found that agents followed nearby existing code far more reliably than either their own defaults or the new intent, to the point that when all existing code contradicted the requested direction and nothing else was provided, none of sixty attempts succeeded, while a single written rule stating the intended priority brought success to fifty-nine out of sixty ([Precedent or Intent?](https://arxiv.org/html/2610.38244)), which suggests that existing code tends to prevail over any new intention that has not been written down somewhere the agent will read it.
+In practice, an agent extending a codebase follows the conventions it finds nearby rather than an intention that was only discussed in a meeting, and the only reliable way we have found to change that is to write the intention down, explicitly, somewhere the agent will read it.
 
 ## The future that has no trace yet
 
 The opposite limit took me longer to see. When we asked agents where a part of the product should go next, the answers were careful, well argued and almost always a reasonable extension of what was already there, built from the current features, the open tickets and the most frequent requests, which makes sense once you consider that a direction nobody has formulated cannot be retrieved from any document.
-
-Research on creative tasks seems to point the same way, finding that models produce ideas that are individually competent but collectively much more similar to each other than human ideas, within one model and across models from different labs ([PNAS Nexus, via TechXplore](https://techxplore.com/news/2026-03-llms-creativity-ai-responses-variety.html), [Are LLMs becoming similarly creative?](https://arxiv.org/pdf/2608.19437)), and work on teams of agents shows that they can deliver correct designs while exploring only a small part of the possible ones, with the context they are given narrowing that exploration further ([When Context Hurts](https://arxiv.org/pdf/2605.04361)).
 
 ## Why agents directing agents may drift towards the incremental
 
