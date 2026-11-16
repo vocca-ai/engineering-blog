@@ -8,7 +8,7 @@ date: 2026-11-16
 cover: images/cheap-prediction/cover.png
 cover_alt: "Diagram of a decision where prediction is now cheap and judgment carries the value"
 featured: false
-status: draft
+status: published
 ---
 
 Over the past year, most of the documents that used to fill a product manager's week, from specifications and research syntheses to competitive analyses and first drafts of a roadmap, have become something an assistant produces in minutes, and the question we keep coming back to at Vocca is what remains of strategic product work once its most visible output costs almost nothing.
