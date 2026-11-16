@@ -1,42 +1,40 @@
 ---
-title: "When prediction becomes cheap, product work moves to judgment, knowledge from the field and action"
-slug: cheap-prediction
-summary: "AI has made most of what a product manager used to produce almost free, and an economic framework from three Toronto economists explains why the value of strategic product work has moved to judgment, proprietary knowledge and the ability to act."
+title: "Product decisions can now rest on what actually happens"
+slug: what-actually-happens
+summary: "Product management has long worked from samples, proxies and anecdotes about what users do, and AI has changed that by making it possible to read everything that actually happens, which moves product work from guessing about reality to looking at it."
 team: Product
 author: hugo-danet
 date: 2026-11-16
-cover: images/cheap-prediction/cover.png
-cover_alt: "Diagram of a decision where prediction is now cheap and judgment carries the value"
+cover: images/what-actually-happens/cover.png
+cover_alt: "Diagram of a magnifying glass over a field of dots, each dot a conversation"
 featured: false
 status: published
 ---
 
-Over the past year, most of the documents that used to fill a product manager's week, from specifications and research syntheses to competitive analyses and first drafts of a roadmap, have become something an assistant produces in minutes, and the question we keep coming back to at Vocca is what remains of strategic product work once its most visible output costs almost nothing.
+For most of its history, product management has worked at a distance from the thing it is trying to improve, since a product manager learns about users through a dozen interviews, a survey, a dashboard of aggregates and the anecdotes that reach them through sales and support, and each of these sources is either too small to be representative or too summarized to show what actually went on. A large part of the craft consisted in building a convincing picture of reality from very partial evidence, and in defending that picture against other pictures built from different evidence.
 
-The most useful answer we have found comes from three economists at the University of Toronto, Ajay Agrawal, Joshua Gans and Avi Goldfarb, in *Prediction Machines* (2018) and its sequel *Power and Prediction* (2022), and although neither book is about product management, their argument applies to it with surprising precision.
+The framework that Ajay Agrawal, Joshua Gans and Avi Goldfarb set out in *Prediction Machines* (2018) and *Power and Prediction* (2022) is usually read as a story about automation, in which AI makes prediction abundant and value moves to whatever surrounds it. We find a less discussed consequence of their argument more useful for product work, which is that prediction, in their broad sense of producing missing information from available information, is also exactly what it takes to read raw material at scale, so the models that are changing how products are built are also changing how much of reality a team can see.
 
-## Cheap prediction raises the value of what surrounds it
+## Reality used to be read through samples
 
-Their starting point is a classic economic one, namely that when the cost of something falls sharply we use far more of it and the value of its complements rises, and their reading of AI is that it lowers the cost of one thing only, prediction, understood broadly as filling in missing information from the information available. A prediction is worth little on its own, since it only becomes valuable inside a decision, alongside three complements the model does not supply: judgment about what matters and what each mistake costs, data that others do not have, and the ability to act on the decision.
+Our product answers phone calls for healthcare facilities, so the reality we care about lives in conversations, in what callers ask, where they hesitate, what the agent misunderstands and which requests end without a solution. Until recently, the only way to know what those conversations contained was to listen to some of them, which meant that what the team believed about its product depended on which calls happened to be heard and by whom, and that a problem affecting a small share of calls could remain invisible to us while being entirely familiar to the people working at the front desk.
 
-Much of what product managers used to produce was prediction in that sense, whether anticipating what users want, estimating the impact of a feature or describing what should be built, and that is precisely the layer that has become abundant. It is also why a generated roadmap tends to be coherent, well argued and generic, since it was produced from the same public information as everyone else's and lands very close to theirs.
+![Diagram of a few circled calls in a faint cloud on the left, and the whole cloud visible on the right with a cluster highlighted](images/what-actually-happens/sample.png)
 
-![Diagram of many generated roadmaps bunched together near their starting point, while a single chosen bet goes far in another direction](images/cheap-prediction/bet.png)
+## Every conversation can now be read
 
-## Judgment, knowledge from the field and action
+A model can now read every conversation, describe what happened in it, classify it against the questions we care about and point to the moment where it went wrong, so the question a product manager starts from has changed from what we think is happening to what the record shows. When someone raises a problem, the first step is no longer a discussion about how widespread it might be but a search across all conversations that returns how often it occurs together with a few real examples, and the discussion that follows starts from the same facts for everyone involved.
 
-Judgment is the most decisive of the three, because an assistant can produce ten defensible roadmaps but cannot tell which one matches the bet a company wants to make, and strategy consists precisely in giving up defensible options for the sake of a conviction that no amount of public data will produce. That conviction is only as good as the knowledge behind it, which is where proprietary data comes in, in the form of the calls a product manager has listened to, the mornings spent at the front desk of an imaging centre and the objections heard during sales, none of which exist in any training set. Action, finally, is what gives the rest an effect, since a decision that is not understood by the team, carried by the people who sell and deploy, and shipped to customers changes nothing for anyone.
+The same applies to our conversations with customers, since a concern raised by a facility can be checked against what its calls actually contain, which sometimes confirms it, sometimes reveals a different problem underneath, and in both cases makes the exchange more precise and more honest. All of this happens within strict rules on health data, with restricted access and examples that are anonymized before anyone outside the operational team sees them.
 
-## Redesigning the work rather than accelerating it
+## Observation shortens the loop
 
-*Power and Prediction* adds a less comfortable point, which is that the gains from a general-purpose technology come from redesigning the system around it rather than inserting it into the existing one, as factories showed when they spent decades replacing the central steam engine with an electric motor and only saw productivity rise once they were rebuilt around small motors at each station.
+The three economists insist on the role of feedback data, the observations that tell a system whether its predictions were right, and the same mechanism governs how fast a product improves. When observing the effect of a change takes minutes rather than weeks of waiting for anecdotes to come back, a team can ship a change, read what it did to real conversations and correct it within the same day, and the pace of improvement comes to depend on the quality of the questions asked of the record rather than on the difficulty of collecting it.
 
-![Diagram of a factory driven by one central engine through belts, next to the same stations each with its own small motor](images/cheap-prediction/engine.png)
+![Diagram of a loop between deciding, shipping and observing, with observing highlighted](images/what-actually-happens/loop.png)
 
-Most product teams are at the electric motor stage, using AI to write the same specifications faster for the same rituals and the same review meetings, inside a process designed for a world in which producing analysis was expensive and thinking at length before building was therefore the cautious thing to do.
+## What observation does not decide
 
-## How we work with this
+Seeing everything does not tell a team what matters, because a complete record still has to be read with the right questions, and choosing those questions, then deciding what to do once the answer is known, remains a matter of judgment that no amount of observation replaces. What has changed is that this judgment now works from evidence that is complete rather than anecdotal, and that disagreements inside the team are more often resolved by examining the record together than by comparing opinions.
 
-In practice we ask our product managers to spend more of their time close to the work our product handles, listening to real calls and following deployments, because that is the knowledge our competitors cannot buy. We write each product direction as an explicit bet that states the conviction behind it, what we give up and the signal that would tell us we were wrong, and when an idea can be shown working within a day we build it rather than describe it, keeping documents for the decisions that commit the company for a long time.
-
-If you would like to spend your time on judgment, field knowledge and execution, on problems where the stakes are real, we are hiring product managers and product engineers through [our careers page](https://www.vocca.com/careers).
+If you would like to build products this close to what actually happens, on problems where the stakes are real, we are hiring product managers and product engineers through [our careers page](https://www.vocca.com/careers).
